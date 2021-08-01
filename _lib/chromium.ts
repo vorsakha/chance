@@ -17,10 +17,11 @@ async function getPage(isDev: boolean): Promise<Page> {
   return _page;
 }
 
-export async function getDom(src: string, isDev: boolean) {
+export async function getDom(src: string, isDev: boolean, wait?: string) {
   const page = await getPage(isDev);
 
   await page.goto(src);
+  wait && (await page.waitForSelector(wait));
 
   const html = await page.evaluate(() => document.body.innerHTML);
 
