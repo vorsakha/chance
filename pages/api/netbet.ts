@@ -20,7 +20,7 @@ export default async function handler(
         const dom = await getDom(url, isDev, waitSelector);
 
         const clubArr: [string, string][] = [];
-        const oddsArr: [string, string, string][] = [];
+        const oddsArr: [number, number, number][] = [];
 
         const allClubs = dom.querySelectorAll(
           ".rj-ev-list__ev-card__team-name"
@@ -35,9 +35,9 @@ export default async function handler(
 
         allOdds.forEach((item) => {
           oddsArr.push([
-            item.querySelectorAll("span")[1].textContent.trim(),
-            item.querySelectorAll("span")[5].textContent.trim(),
-            item.querySelectorAll("span")[9].textContent.trim(),
+            Number(item.querySelectorAll("span")[1].textContent.trim()),
+            Number(item.querySelectorAll("span")[5].textContent.trim()),
+            Number(item.querySelectorAll("span")[9].textContent.trim()),
           ]);
         });
 
