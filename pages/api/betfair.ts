@@ -14,7 +14,9 @@ export default async function handler(
   switch (method) {
     case "GET":
       try {
-        const dom = await getDom(url, isDev);
+        const waitSelector = ".team-name";
+
+        const dom = await getDom(url, isDev, waitSelector);
 
         const clubArr: [string, string][] = [];
         const oddsArr: [number, number, number][] = [];
@@ -34,7 +36,14 @@ export default async function handler(
           ]);
         });
 
-        res.status(200).json({ clubs: clubArr, Odds: oddsArr });
+        while (oddsArr.length < 10) {
+          oddsArr.push([1, 1, 1]);
+        }
+        while (clubArr.length < 10) {
+          clubArr.push(["", ""]);
+        }
+
+        res.status(200).json({ clubs: clubArr, odds: oddsArr });
       } catch (error) {
         console.log(error);
         res.status(400).json({ error: "Server Error." });

@@ -41,6 +41,13 @@ export default async function handler(
           ]);
         });
 
+        while (oddsArr.length < 10) {
+          oddsArr.push([1, 1, 1]);
+        }
+        while (clubArr.length < 10) {
+          clubArr.push(["", ""]);
+        }
+
         res.status(200).json({ clubs: clubArr, odds: oddsArr });
       } catch (error) {
         console.log(error);
