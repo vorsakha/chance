@@ -17,7 +17,7 @@ export default async function handler(
         const dom = await getDom(url, isDev);
 
         const clubArr: [string, string][] = [];
-        const oddsArr: [string, string, string][] = [];
+        const oddsArr: [number, number, number][] = [];
 
         const allClubs = dom.querySelectorAll(
           ".events-list__grid__info__main__participants__name"
@@ -30,15 +30,21 @@ export default async function handler(
 
         allOdds.forEach((item) => {
           oddsArr.push([
-            item
-              .querySelectorAll(".selections__selection__odd")[0]
-              .textContent.trim(),
-            item
-              .querySelectorAll(".selections__selection__odd")[1]
-              .textContent.trim(),
-            item
-              .querySelectorAll(".selections__selection__odd")[2]
-              .textContent.trim(),
+            Number(
+              item
+                .querySelectorAll(".selections__selection__odd")[0]
+                .textContent.trim()
+            ),
+            Number(
+              item
+                .querySelectorAll(".selections__selection__odd")[1]
+                .textContent.trim()
+            ),
+            Number(
+              item
+                .querySelectorAll(".selections__selection__odd")[2]
+                .textContent.trim()
+            ),
           ]);
         });
 
