@@ -17,7 +17,7 @@ export default async function handler(
         const dom = await getDom(url, isDev);
 
         const clubArr: [string, string][] = [];
-        const oddsArr: [string, string, string][] = [];
+        const oddsArr: [number, number, number][] = [];
 
         const allClubs = dom.querySelectorAll(".team-name");
         const allOdds = dom.querySelectorAll(".market-3-runners");
@@ -28,9 +28,9 @@ export default async function handler(
 
         allOdds.forEach((item) => {
           oddsArr.push([
-            item.querySelectorAll("span")[1].textContent.trim(),
-            item.querySelectorAll("span")[2].textContent.trim(),
-            item.querySelectorAll("span")[3].textContent.trim(),
+            Number(item.querySelectorAll("span")[1].textContent.trim()),
+            Number(item.querySelectorAll("span")[2].textContent.trim()),
+            Number(item.querySelectorAll("span")[3].textContent.trim()),
           ]);
         });
 
