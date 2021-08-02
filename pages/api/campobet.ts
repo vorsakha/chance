@@ -3,7 +3,7 @@
 import type { NextApiResponse, NextApiRequest } from "next";
 import { getDom } from "../../_lib/chromium";
 
-const url = "https://www.kto.com/pt/sports/competition/0/0/11318/";
+const url = "https://campobet.com/br/sport/prelive?sportids=0&champids=11318";
 
 const isDev = !process.env.AWS_REGION;
 
