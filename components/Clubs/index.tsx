@@ -1,9 +1,12 @@
+import { useIndex } from "../../context";
+
 interface BetProps {
   data: string[];
-  index: number;
 }
 
-const Clubs = ({ data, index }: BetProps) => {
+const Clubs = ({ data }: BetProps) => {
+  const { index } = useIndex();
+
   return (
     <>
       {
