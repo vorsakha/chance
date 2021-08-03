@@ -20,7 +20,7 @@ export default async function handler(
         const dom = await getDom(url, isDev, waitSelector);
 
         const clubArr: [string, string][] = [];
-        const oddsArr: [number, number, number][] = [];
+        const oddsArr: any = [];
 
         const allClubs = dom.querySelectorAll(
           ".events-list__grid__info__main__participants__name"
@@ -52,11 +52,13 @@ export default async function handler(
         });
 
         while (oddsArr.length < 10) {
-          oddsArr.push([1, 1, 1]);
+          oddsArr.push(null);
         }
         while (clubArr.length < 10) {
           clubArr.push(["", ""]);
         }
+
+        res.setHeader("Cache-Control", "s-maxage=1800, stale-while-revalidate");
 
         res.status(200).json({ clubs: clubArr, odds: oddsArr });
       } catch (error) {
