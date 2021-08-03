@@ -1,7 +1,18 @@
+import { useState } from "react";
 import { useData, useIndex } from "../../context";
-import { NavButton, NavContainer, NavList, NavListItem } from "./Nav.styles";
+
+// Components
+import {
+  NavContainer,
+  NavList,
+  NavListItem,
+  MobileWrapper,
+} from "./Nav.styles";
+import Button from "../common/button";
 
 export default function Navbar() {
+  const [toggleMobile, setMobile] = useState<boolean>(false);
+
   const { setIndex } = useIndex();
   const { contextData } = useData();
 
@@ -9,13 +20,27 @@ export default function Navbar() {
     <NavContainer>
       <h1>Chance</h1>
       <p>Campeonato Brasileiro Série A</p>
+      <MobileWrapper>
+        {!toggleMobile ? (
+          <Button onClick={() => setMobile(true)}>Todos os Jogos</Button>
+        ) : (
+          <Button danger onClick={() => setMobile(false)}>
+            X
+          </Button>
+        )}
+      </MobileWrapper>
       {contextData !== null && (
-        <NavList>
+        <NavList toggleMobile={toggleMobile}>
           {contextData[2].clubs.map((club: string[], key: number) => (
             <NavListItem key={key}>
-              <NavButton onClick={() => setIndex(key)}>
+              <Button
+                onClick={() => {
+                  setIndex(key);
+                  setMobile(false);
+                }}
+              >
                 {club[0]} x {club[1]}
-              </NavButton>
+              </Button>
             </NavListItem>
           ))}
         </NavList>
