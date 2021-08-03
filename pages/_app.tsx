@@ -16,7 +16,7 @@ html{
 
 body{
   min-height:100vh;
-  padding:0 1rem;
+  /* padding:0 1rem; */
   margin:0;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
