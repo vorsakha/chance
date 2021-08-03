@@ -14,8 +14,8 @@ interface IndexTypes {
 interface DataTypes {
   contextData:
     | {
-        clubs: any;
-        odds: any;
+        clubs: any[];
+        odds: any[];
       }[]
     | null;
   setData: Dispatch<SetStateAction<any>>;
