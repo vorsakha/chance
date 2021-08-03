@@ -1,22 +1,25 @@
 import { useData, useIndex } from "../../context";
+import { NavButton, NavContainer, NavList, NavListItem } from "./Nav.styles";
 
 export default function Navbar() {
   const { setIndex } = useIndex();
   const { contextData } = useData();
 
   return (
-    <nav>
+    <NavContainer>
+      <h1>Chance</h1>
+      <p>Campeonato Brasileiro Série A</p>
       {contextData !== null && (
-        <ul>
+        <NavList>
           {contextData[2].clubs.map((club: string[], key: number) => (
-            <li key={key}>
-              <button onClick={() => setIndex(key)}>
+            <NavListItem key={key}>
+              <NavButton onClick={() => setIndex(key)}>
                 {club[0]} x {club[1]}
-              </button>
-            </li>
+              </NavButton>
+            </NavListItem>
           ))}
-        </ul>
+        </NavList>
       )}
-    </nav>
+    </NavContainer>
   );
 }
