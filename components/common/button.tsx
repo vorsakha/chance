@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+interface ButtonTypes {
+  danger?: boolean;
+}
+
+const Button = styled.button<ButtonTypes>`
   width: 100%;
-  background-color: dodgerblue;
+  background-color: ${({ danger }) => (danger ? "#eb4f4f" : "dodgerblue")};
   border: none;
   color: #fff;
   padding: 10px 1rem;
@@ -11,7 +15,7 @@ const Button = styled.button`
   transition: background-color ease-in;
 
   :hover {
-    background-color: #1b75d0;
+    background-color: ${({ danger }) => (danger ? "#ce4343" : "#1b75d0")};
   }
 `;
 
