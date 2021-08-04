@@ -10,17 +10,21 @@ import { useData } from "../context";
 
 export async function getStaticProps(): Promise<any> {
   try {
-    // const netbetRes = await axios.get("https://chance.vercel.app/api/netbet");
     const ktoRes = await axios.get(`https://chance.vercel.app/api/kto`);
     const campobetRes = await axios.get(
       `https://chance.vercel.app/api/campobet`
     );
     const betanoRes = await axios.get(`https://chance.vercel.app/api/betano`);
+    // const netbetRes = await axios.get("https://chance.vercel.app/api/netbet");
     // const betfairRes = await axios.get("https://chance.vercel.app/api/betfair");
+
+    const kto = ktoRes.data;
+    const caompobet = campobetRes.data;
+    const betano = betanoRes.data;
 
     return {
       props: {
-        data: [ktoRes.data, campobetRes.data, betanoRes.data],
+        data: [kto, caompobet, betano],
       },
     };
   } catch (error) {
