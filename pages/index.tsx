@@ -18,9 +18,9 @@ export async function getStaticProps(): Promise<any> {
     // const netbetRes = await axios.get("https://chance.vercel.app/api/netbet");
     // const betfairRes = await axios.get("https://chance.vercel.app/api/betfair");
 
-    const kto = ktoRes.data;
-    const caompobet = campobetRes.data;
-    const betano = betanoRes.data;
+    const kto = JSON.stringify(ktoRes.data);
+    const caompobet = JSON.stringify(campobetRes.data);
+    const betano = JSON.stringify(betanoRes.data);
 
     return {
       props: {
