@@ -1,7 +1,7 @@
 import axios from "axios";
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import Clubs from "../components/Clubs";
 import Container from "../components/common/container";
 import Navbar from "../components/Nav";
@@ -53,9 +53,16 @@ export default function Home({
 
       <Container>
         <h1>{<Clubs data={data[2].clubs} />}</h1>
-        {data.map((odd: OddsTypes, key: any) => (
-          <div key={key}>{<Odds data={odd.odds} />}</div>
-        ))}
+        <table>
+          <tr>
+            <th>Casa</th>
+            <th>Empate</th>
+            <th>Fora</th>
+          </tr>
+          {data.map((odd: OddsTypes, key: any) => (
+            <Fragment key={key}>{<Odds data={odd.odds} />}</Fragment>
+          ))}
+        </table>
       </Container>
     </>
   );

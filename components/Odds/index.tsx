@@ -10,9 +10,11 @@ const Odds = ({ data }: BetProps) => {
   return (
     <>
       {data[index] !== null && (
-        <div>
-          {data[index][0]} | {data[index][1]} | {data[index][2]}
-        </div>
+        <tr>
+          <td>{data[index][0]}</td>
+          <td>{data[index][1]}</td>
+          <td>{data[index][2]}</td>
+        </tr>
       )}
     </>
   );

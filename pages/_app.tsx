@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
 html{
   box-sizing: border-box;
   background: #F5F4F0;
+  color: #2d2d2d;
   display:block;
   height: 100%;
   max-width: 1000px;
@@ -33,6 +34,27 @@ main {
 
   }
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+  width: 300px;
+  }
+}
+td, th {
+  border-right:  1px solid rgba(75, 85, 99, 0.2);
+  text-align: center;
+  padding: 8px;
+}
+td:last-child, th:last-child {
+  border: none;
+}
+th {
+  background-color: dodgerblue;
+}
+
 
 code {
   background-color: #fcfcfc;
