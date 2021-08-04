@@ -1,6 +1,6 @@
 # ✳️ CHANCE
 
-Chance grabs brazilian serie A (Brasileirão) betting odds from several websites and displays per match, so people get an easy understanding of the current matches odds.
+Chance grabs brazilian Serie A (Brasileirão) betting odds from several websites and displays per match, so people get an easy understanding of the current matches odds.
 
 ## ✔️ Tech
 
