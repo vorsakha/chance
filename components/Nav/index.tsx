@@ -7,6 +7,7 @@ import {
   NavList,
   NavListItem,
   MobileWrapper,
+  Logo,
 } from "./Nav.styles";
 import Button from "../common/button";
 
@@ -18,7 +19,10 @@ export default function Navbar() {
 
   return (
     <NavContainer>
-      <h1>Chance</h1>
+      <h1>
+        <Logo />
+        Chance
+      </h1>
       <p>Campeonato Brasileiro Série A</p>
       <MobileWrapper>
         {!toggleMobile ? (
