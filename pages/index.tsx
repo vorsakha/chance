@@ -11,9 +11,11 @@ import { useData } from "../context";
 export async function getStaticProps(): Promise<any> {
   try {
     // const netbetRes = await axios.get("http://localhost:3000/api/netbet");
-    const ktoRes = await axios.get("http://localhost:3000/api/kto");
-    const campobetRes = await axios.get("http://localhost:3000/api/campobet");
-    const betanoRes = await axios.get("http://localhost:3000/api/betano");
+    const ktoRes = await axios.get(`${process.env.VERCEL_URL}/api/kto`);
+    const campobetRes = await axios.get(
+      `${process.env.VERCEL_URL}/api/campobet`
+    );
+    const betanoRes = await axios.get(`${process.env.VERCEL_URL}/api/betano`);
     // const betfairRes = await axios.get("http://localhost:3000/api/betfair");
 
     return {
