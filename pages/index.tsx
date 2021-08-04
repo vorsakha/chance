@@ -8,40 +8,41 @@ import Navbar from "../components/Nav";
 import Odds from "../components/Odds";
 import { useData } from "../context";
 
-export async function getStaticProps(): Promise<any> {
-  try {
-    // const netbetRes = await axios.get("http://localhost:3000/api/netbet");
-    const ktoRes = await axios.get(`${process.env.VERCEL_URL}/api/kto`);
-    const campobetRes = await axios.get(
-      `${process.env.VERCEL_URL}/api/campobet`
-    );
-    const betanoRes = await axios.get(`${process.env.VERCEL_URL}/api/betano`);
-    // const betfairRes = await axios.get("http://localhost:3000/api/betfair");
+// export async function getStaticProps(): Promise<any> {
+//   try {
+//     // const netbetRes = await axios.get("http://localhost:3000/api/netbet");
+//     const ktoRes = await axios.get(`${process.env.VERCEL_URL}/api/kto`);
+//     const campobetRes = await axios.get(
+//       `${process.env.VERCEL_URL}/api/campobet`
+//     );
+//     const betanoRes = await axios.get(`${process.env.VERCEL_URL}/api/betano`);
+//     // const betfairRes = await axios.get("http://localhost:3000/api/betfair");
 
-    return {
-      props: {
-        data: [ktoRes.data, campobetRes.data, betanoRes.data],
-      },
-    };
-  } catch (error) {
-    console.error(error);
-    console.log(error);
-  }
-}
+//     return {
+//       props: {
+//         data: [ktoRes.data, campobetRes.data, betanoRes.data],
+//       },
+//     };
+//   } catch (error) {
+//     console.error(error);
+//     console.log(error);
+//   }
+// }
 
 //Types
 interface OddsTypes {
   odds: [number, number, number][];
 }
 
-export default function Home({
-  data,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home() {
+// {
+// data,
+// }: InferGetStaticPropsType<typeof getStaticProps>
   const { setData } = useData();
 
-  useEffect(() => {
-    setData(data);
-  }, []);
+  // useEffect(() => {
+  //   setData(data);
+  // }, []);
 
   return (
     <>
@@ -51,7 +52,7 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
+      {/* <Navbar />
 
       <Container>
         <h1>{<Clubs data={data[2].clubs} />}</h1>
@@ -65,7 +66,7 @@ export default function Home({
             <Fragment key={key}>{<Odds data={odd.odds} />}</Fragment>
           ))}
         </table>
-      </Container>
+      </Container> */}
     </>
   );
 }
